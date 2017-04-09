@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 windows_sim/
 udacity_dataset/
+Udacity_data/
 data_set_counter_lap/
 track1/
 # C extensions
