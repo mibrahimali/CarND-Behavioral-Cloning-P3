@@ -16,8 +16,8 @@ model.compile(optimizer, loss="mse")
 # plot(lenet_model, to_file='model.png')
 model.summary()
 
-train_log_path = r'/home/mohamed/Udacity/CarND-Term1-Starter-Kit/Projects/CarND-Behavioral-Cloning-P3/Udacity_data/train_log.csv'
-valid_log_path = r'/home/mohamed/Udacity/CarND-Term1-Starter-Kit/Projects/CarND-Behavioral-Cloning-P3/Udacity_data/valid_log.csv'
+train_log_path = r'/home/mohamed/Udacity/CarND-Term1-Starter-Kit/Projects/CarND-Behavioral-Cloning-P3/train_log.csv'
+valid_log_path = r'/home/mohamed/Udacity/CarND-Term1-Starter-Kit/Projects/CarND-Behavioral-Cloning-P3/valid_log.csv'
 
 
 train_generator = data_generator.dataset_generator(batch_size=128, paths=[train_log_path])
@@ -25,17 +25,14 @@ valid_generator = data_generator.dataset_generator(batch_size=64, paths=[valid_l
 
 history_object = model.fit_generator(
                                         train_generator,
-                                        samples_per_epoch=6400,
+                                        samples_per_epoch=17536,
                                         nb_epoch=10,
                                         validation_data=valid_generator,
-                                        nb_val_samples=4800, callbacks=[modelcheckpoint_cb]
+                                        nb_val_samples=4160  # , callbacks=[modelcheckpoint_cb]
 
                                     )
 
-model.save("model.h5")
-
-### print the keys contained in the history object
-print(history_object.history.keys())
+model.save("model_5.h5")
 
 ### plot the training and validation loss for each epoch
 plt.plot(history_object.history['loss'])
