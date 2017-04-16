@@ -15,6 +15,8 @@ from io import BytesIO
 from keras.models import load_model
 import h5py
 from keras import __version__ as keras_version
+import cv2
+
 
 sio = socketio.Server()
 app = Flask(__name__)
@@ -43,8 +45,8 @@ class SimplePIController:
         return self.Kp * self.error + self.Ki * self.integral
 
 
-controller = SimplePIController(0.1, 0.002)
-set_speed = 20
+controller = SimplePIController(0.02, 0.001)
+set_speed = 25
 controller.set_desired(set_speed)
 
 
@@ -61,11 +63,13 @@ def telemetry(sid, data):
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
         image_array = np.asarray(image)
-        steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
+        image_cropped = image_array[60:(160 - 25), :]
+        image_resized = cv2.resize(image_cropped, (200, 66), interpolation=cv2.INTER_AREA)
+        steering_angle = float(model.predict(image_resized[None, :, :, :], batch_size=1))
 
         throttle = controller.update(float(speed))
 
-        print(steering_angle, throttle)
+        print("Steering Angle =", steering_angle*25,"throttle output =", throttle)
         send_control(steering_angle, throttle)
 
         # save frame
@@ -120,7 +124,7 @@ if __name__ == '__main__':
               ', but the model was built using ', model_version)
 
     model = load_model(args.model)
-
+    model.summary()
     if args.image_folder != '':
         print("Creating image folder at {}".format(args.image_folder))
         if not os.path.exists(args.image_folder):

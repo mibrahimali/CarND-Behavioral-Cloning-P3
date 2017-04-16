@@ -6,7 +6,11 @@ windows_sim/
 udacity_dataset/
 Udacity_data/
 data_set_counter_lap/
+Perfect_Driving/
+test_run/
+corners_Data/
 track1/
+counter_Lap/
 # C extensions
 *.so
 
