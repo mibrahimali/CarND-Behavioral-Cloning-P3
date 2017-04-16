@@ -99,6 +99,7 @@ Finally Video of Model Testing can be found in model_nvidia_bt_512_e_25_resize_6
 
 __Further Improvment__
 
+
 1. Introduce translation factor on Training Images to enhance stability of model by learning intermadiate recovery steps
 2. Using LSTM Network as Steering command normally depend not only on this time stamp but also on history of commands
 3. generalize Training Dataset by augmenting lights and shadow effect to generalize netowork for Track 2
