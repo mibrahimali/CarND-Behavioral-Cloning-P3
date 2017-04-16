@@ -11,6 +11,7 @@ test_run/
 corners_Data/
 track1/
 counter_Lap/
+model_nvidia_bt_128_e_25_resize_60_200_lr_5e-5_s_32256/
 # C extensions
 *.so
 
