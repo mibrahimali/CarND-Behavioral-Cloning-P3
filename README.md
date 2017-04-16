@@ -31,7 +31,6 @@ This repository contains files for the Behavioral Cloning Project as Follow:
 * drive.py : for driving the car in autonomous mode
 * model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256 folder:
   * model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256.h5: contains a trained convolution neural network 
-  * model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256.mp4: contains a screen recorded video of a full laps on track 1.
 * README.md summarizing the results
 
 
@@ -93,13 +92,9 @@ After Multiple Tunning cycles of parameters
 
 ![alt text][image7]
 
-Finally Video of Model Testing can be found in model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256 Folder
+Finally Video of Model Testing can be found on YouTube (Click on next Image)
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/DZ-zgRe_T-M/0.jpg)](http://www.youtube.com/watch?v=DZ-zgRe_T-M)
 
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=DZ-zgRe_T-M
-" target="_blank"><img src="http://img.youtube.com/vi/DZ-zgRe_T-M/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ![alt text][image10]
 
