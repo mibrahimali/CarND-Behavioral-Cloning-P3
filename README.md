@@ -94,6 +94,7 @@ After Multiple Tunning cycles of parameters
 ![alt text][image7]
 
 Finally Video of Model Testing can be found in model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256 Folder
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/DZ-zgRe_T-M/0.jpg)](http://www.youtube.com/watch?v=DZ-zgRe_T-M)
 
 ![alt text][image10]
 
