@@ -16,7 +16,7 @@ In this project, End to End Control Pipeline of vehicle Steering Angle is develo
 [image7]: ./model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256/model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256.png "Training Loss"
 [image8]: ./readme_images/Training_dataset_Steering_command_Histogram.png "Training dataset Steering command Histogram"
 [image9]: ./readme_images/Validation_dataset_Steering_command_Histogram.png "Validation dataset Steering command Histogram"
-
+[image10]: ./readme_images/auto.gif "Testing Model"
 
 ## Overview
 ---
@@ -62,5 +62,41 @@ Right_steering = center_Steering - correction value
 __Final Dataset for both Training and Validation__
 ![alt text][image8]
 ![alt text][image9] 
-Training Dataset size = 32544
-Validation Dataset size = 1713
+
+* Training Dataset size = 32544
+* Validation Dataset size = 1713
+
+### Design and Test a Model Architecture
+
+__Model Architecture__
+
+Starting with well known Nvidia CNN Architecture for "End to End Learning for self-driving cars" which can be found [in this paper](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf). as first step and modifying this model as follow
+* introducesing two Dropout layers to prevent overfitting 
+* removing last convolution layer and fully connected layer of 50 neuran to simplify model. 
+* Using Elu as Activation function instead of normal relu to enhance learning capabilites
+
+My final model is presented in next figure:
+![alt text][image6]
+
+* Total params: 479,541
+* Trainable params: 479,541
+* Non-trainable params: 0
+
+__Training Phase__ 
+
+After Multiple Tunning cycles of parameters
+1. Adam Optimizer Used with learning rate = 5e-4
+2. Batch Size = 512 Images
+3. Epochs Numbers = 25
+* Following Figure show Training loss over epochs
+![alt text][image7]
+
+Finally Video of Model Testing can be found in model_nvidia_bt_512_e_25_resize_60_200_lr_5e-4_s_32256 Folder
+
+![alt text][image10]
+
+__ Further Improvment__
+
+1. Introduce translation factor on Training Images to enhance stability of model by learning intermadiate recovery steps
+2. Using LSTM Network as Steering command normally depend not only on this time stamp but also on history of commands
+3. generalize Training Dataset by augmenting lights and shadow effect to generalize netowork for Track 2
